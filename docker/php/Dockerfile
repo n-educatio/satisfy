@@ -10,6 +10,7 @@ RUN install-php-extensions @composer zip
 RUN chown -R www-data:www-data /var/www
 
 COPY php.ini /usr/local/etc/php/conf.d/satisfy.ini
+COPY docker-cmd.sh /docker-entrypoint.d/
 
 USER www-data
 RUN mkdir -p ~/.ssh && chmod 0700 ~/.ssh && ssh-keyscan -H github.com >> ~/.ssh/known_hosts && \
